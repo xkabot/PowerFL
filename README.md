@@ -12,6 +12,16 @@
 8. [References](#8-references)
 
 ---
+## Results
+![Synthetic Data Convergence](plots/synthetic_convergence.png)
+![Synthetic Power Analysis](plots/synthetic_power_analysis.png)
+![Reddit Data Convergence](plots/reddit_convergence.png)
+![Reddit FL Analysis](plots/reddit_fl_analysis.png)
+![Reddit Power Analysis](plots/reddit_fl_power_analysis.png)
+
+Here we can see that our Federated Learning achieved 1.13x more performative power than centralized 
+(+12.9% advantage) using real reddit data (50 subreddits with 50000 users). This is a measure of user engagement, meaning the Federated Learning model with Performative Prediction is able to optimize and adjust the individual data distribution to better drive engagement rather then the centralized model. 
+
 ## Installation
 
 ### Download original files
@@ -751,62 +761,6 @@ for u in range(n_users):
 ```
 
 **Model**: ε_u ~ N(ε̄_group, σ²_group), clipped to [0.05, 0.95]
-
----
-
-## 7. Experimental Validation
-
-### 7.1 Experiment 1: Synthetic Data
-
-**Setup**:
-- 10 clients, 50 users each
-- Heterogeneity levels: low (σ=0.1), medium (σ=0.3), high (σ=0.5)
-
-**Results**:
-
-| Heterogeneity | E[ε] | Var(ε) | P_central | P_FL | Amplification |
-|---------------|------|--------|-----------|------|---------------|
-| Low | 0.55 | 0.01 | 0.55 | 0.56 | 1.02x (+2%) |
-| Medium | 0.66 | 0.09 | 0.66 | 0.72 | 1.10x (+10%) |
-| High | 0.76 | 0.24 | 0.76 | 0.91 | 1.19x (+19%) |
-
-**Validation**: Empirical amplification matches theory √(1 + Var(ε)/E[ε]²).
-
-### 7.2 Experiment 2: Convergence
-
-**Setup**:
-- P-FedAvg with E=5 local steps
-- 200 rounds
-- Full and partial (K=5) participation
-
-**Results**:
-- All methods converge to θ^PS
-- Full participation: smooth O(1/T) decay
-- Partial participation: higher variance, same limit
-- Scheme I ≈ Scheme II for equal weights
-
-### 7.3 Experiment 3: Reddit Simulation
-
-**Setup**:
-- 15 subreddits with realistic engagement profiles
-- User counts: 30-200 per subreddit
-- 300 training rounds
-
-**Results**:
-- r/politics (ε=0.76) and r/gaming (ε=0.68): highest engagement
-- r/books (ε=0.35) and r/science (ε=0.39): lowest engagement
-- FL amplification: 1.02x (+2.3%)
-- Lower than synthetic because Reddit structure has lower Var(ε)
-
-### 7.4 Key Observations
-
-1. **Formula Validated**: Amplification = √(1 + Var(ε)/E[ε]²) matches empirical results exactly
-
-2. **Heterogeneity Matters**: Var(ε) is the key driver of FL advantage
-
-3. **Convergence Confirmed**: O(1/T) rate as predicted by Theorem 4.1
-
-4. **Targeting Intuition**: FL correctly allocates θᵢ ∝ εᵢ
 
 ---
 
