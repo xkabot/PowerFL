@@ -12,6 +12,22 @@
 8. [References](#8-references)
 
 ---
+## Installation
+
+### Download original files
+1. ```git clone https://github.com/xkabot/PowerFL.git```
+2. ```cd src```
+3. ```conda create --name <env> --file <this file>```
+4. ```conda activate <env>```
+5. ```python main.py```
+
+
+### To download original dataset and process it 
+0. Make sure you are in the src directory. 
+1. ```git clone https://github.com/linanqiu/reddit-dataset.git```
+2. ```python shortener.py```
+
+File should now be found in the data subdirectory within the src directory. 
 
 ## 1. Introduction
 
