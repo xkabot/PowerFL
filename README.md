@@ -60,8 +60,7 @@ src/
 ├── shortener.py         # Data preprocessing script
 ├── data/
 │   └── reddit_combined_complete.csv  # Processed Reddit data
-├── plots/               # Generated visualizations
-└── reddit-dataset/      # Raw Reddit dataset (from GitHub)
+|── plots/               # Generated visualizations
 ```
 
 ---
