@@ -764,7 +764,7 @@ for u in range(n_users):
 
 ---
 
-## 8. References
+## 7. References
 
 ### Primary Sources
 
