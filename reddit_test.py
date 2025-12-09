@@ -142,7 +142,7 @@ def create_population(stats: pd.DataFrame, df: pd.DataFrame,
 def plot_results(pop: Population, pwr: Dict, training: TrainingState = None, save_path: str = None):
     """6-panel visualization."""
     fig, axes = plt.subplots(2, 3, figsize=(16, 10))
-    fig.suptitle('Performative FL on Reddit (Perdomo et al. 2020)', fontsize=14)
+    fig.suptitle('Performative FL on Reddit', fontsize=14)
     
     sorted_c = sorted(pop.clients, key=lambda c: c.epsilon, reverse=True)[:15]
     names, eps = [c.name for c in sorted_c], [c.epsilon for c in sorted_c]
