@@ -17,7 +17,7 @@
 ### Download original files
 1. ```git clone https://github.com/xkabot/PowerFL.git```
 2. ```cd src```
-3. ```conda create --name <env> --file <this file>```
+3. ```conda create --name <env> --file requirements.txt```
 4. ```conda activate <env>```
 5. ```python main.py```
 
