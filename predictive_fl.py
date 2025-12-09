@@ -690,7 +690,7 @@ def plot_power_comparison(power_results: Dict, population: Population, save_path
     
     points = ['P(θ^PS)', 'P_central', 'P_FL', 'P_supremum']
     values = [
-        power_results['P_at_PS'],
+        power_results['P_at_PS']/len(population.client_epsilons),
         power_results['P_central'],
         power_results['P_FL'],
         power_results['P_supremum']
